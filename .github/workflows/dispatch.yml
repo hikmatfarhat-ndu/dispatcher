@@ -11,7 +11,12 @@ jobs:
       - name: set secret
         run: |
           echo "reveived hook"
-          echo ${{github.event.client_payload.repo}}
+          suffix="${{github.event.client_payload.repo}}"
+          echo $suffix|cut -d '/' -f 2|grep 'homework'
+          if [ $? -eq 0 ]
+          then
+            echo "homework"
+          fi
 
       #- name: PrintEnv
       #  env:
