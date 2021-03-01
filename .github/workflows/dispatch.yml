@@ -9,6 +9,8 @@ jobs:
       #  with:
       #      ref: ${{github.head_ref}}
       - name: set secret
+        env:
+          token: ${{secret.workflow_token}}
         #working-directory: ${{github.workspace}}
         run: |
           echo "reveived hook"
