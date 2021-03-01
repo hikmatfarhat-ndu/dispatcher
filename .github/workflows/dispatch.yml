@@ -4,10 +4,9 @@ on:
 jobs:
   dispatch:
     runs-on: [ubuntu-latest]
+    if: ${{github.event.client_payload.action == 'created'}}
     steps:
       - uses: actions/checkout@v2
-      #  with:
-      #      ref: ${{github.head_ref}}
       - name: set secret
         env:
           token: ${{secrets.workflow_token}}
@@ -15,6 +14,13 @@ jobs:
         run: |
           echo "reveived hook"
           bash setup.sh "${{github.event.client_payload.repo}}"
+  log:
+    runs-on: [ubuntu-latest] 
+    steps:
+      - name: log
+        run: |
+          echo "${{github.event.client_payload.action}}"
+    
 
       #- name: PrintEnv
       #  env:
