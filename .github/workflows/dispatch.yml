@@ -19,7 +19,7 @@ jobs:
   #  steps:
   #    - name: log
   #      run: |
-          echo "${{github.event.client_payload.action}}"
+  #      echo "${{github.event.client_payload.action}}"
     
 
       #- name: PrintEnv
