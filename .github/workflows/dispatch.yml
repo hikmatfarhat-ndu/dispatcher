@@ -1,15 +1,17 @@
-name: set secret
+name: Dispatcher
 on:
   repository_dispatch:
 jobs:
-  testAll:
+  dispatch:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-        with:
-            ref: ${{github.head_ref}}
-      - name: test
-        run: echo "reveived hook"
+      #- uses: actions/checkout@v2
+      #  with:
+      #      ref: ${{github.head_ref}}
+      - name: set secret
+        run: |
+          echo "reveived hook"
+          echo ${{github.event.client_payload.repo}}
 
       #- name: PrintEnv
       #  env:
