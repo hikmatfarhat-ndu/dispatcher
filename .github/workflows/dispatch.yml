@@ -17,6 +17,7 @@ jobs:
           then
             echo "homework"
           fi
+          echo "done"
 
       #- name: PrintEnv
       #  env:
