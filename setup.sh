@@ -11,6 +11,7 @@ if [ "$suffix" != "" ]
 then
   echo $token |gh auth login --with-token
   gh auth status
+  echo "setting secret for $1 "
   gh secret set workflow_token -b $token -R "$1"
 else
   echo  "not homework"
