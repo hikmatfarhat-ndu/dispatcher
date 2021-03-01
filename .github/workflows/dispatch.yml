@@ -14,11 +14,11 @@ jobs:
         run: |
           echo "reveived hook"
           bash setup.sh "${{github.event.client_payload.repo}}"
-  log:
-    runs-on: [ubuntu-latest] 
-    steps:
-      - name: log
-        run: |
+  #log:
+  #  runs-on: [ubuntu-latest] 
+  #  steps:
+  #    - name: log
+  #      run: |
           echo "${{github.event.client_payload.action}}"
     
 
