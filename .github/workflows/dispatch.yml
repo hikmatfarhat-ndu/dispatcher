@@ -1,0 +1,19 @@
+name: set secret
+on:
+  repository_dispatch:
+jobs:
+  testAll:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            ref: ${{github.head_ref}}
+      - name: test
+        run: echo "reveived hook"
+
+      #- name: PrintEnv
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJSON(github) }}
+      #  run: |
+      #    echo event triggered.
+      #    echo "$GITHUB_CONTEXT"
