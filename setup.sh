@@ -6,7 +6,7 @@ then
   exit 1
 fi
 
-suffix=echo "$1" |cut -d '/' -f 2 |grep 'homework'
+suffix=$(echo "$1" |cut -d '/' -f 2 |grep 'homework')
 if [ "$suffix" != "" ]
 then
   echo "homework repo"
