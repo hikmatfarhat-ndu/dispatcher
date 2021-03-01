@@ -9,9 +9,10 @@ jobs:
       #  with:
       #      ref: ${{github.head_ref}}
       - name: set secret
+        working-directory: ${{github.workspace}}
         run: |
           echo "reveived hook"
-          bash setup.sh "${{github.event.client_payload.repo}}"
+          sh setup.sh "${{github.event.client_payload.repo}}"
 
       #- name: PrintEnv
       #  env:
