@@ -12,12 +12,12 @@ jobs:
         run: |
           echo "reveived hook"
           suffix="${{github.event.client_payload.repo}}"
-          echo "$suffix"|cut -d '/' -f 2|grep 'homework'
-          if [ $? -eq 0 ]
+          res=$(echo "$suffix"|cut -d '/' -f 2|grep 'homework')
+          if [ "$res" -ne "" ]
           then
             echo "homework"
           fi
-          echo "$suffix"
+          echo "$res"
 
       #- name: PrintEnv
       #  env:
